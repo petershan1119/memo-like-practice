@@ -1,5 +1,6 @@
 import json
 
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import HttpResponse
@@ -9,6 +10,7 @@ from django.views.decorators.http import require_POST
 from .forms import PostForm
 from .models import Memos
 
+User = get_user_model()
 
 def index(request):
     sort = request.GET.get('sort', '')
@@ -31,6 +33,22 @@ def index(request):
             'memos': memos,
         }
         return render(request, 'memos/index.html', context)
+
+
+def post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            memo = form.save(commit=False)
+            # memo.name_id = User.objects.get(username=request.user.username)
+            memo.generate()
+            return redirect('index')
+    else:
+        form = PostForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'memos/form.html', context)
 
 
 def modify(request, memokey):

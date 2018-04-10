@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('<int:memokey>/modify/', views.modify, name='modify'),
+    path('new/', views.post, name='new-memo'),
 ]
