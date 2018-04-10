@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'members',
+    'memos'
 ]
 
 AUTH_USER_MODEL = 'members.User'
