@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+{% endblock %}
+
+{% block container %}
+<div class="container">
+  <select id="sort-select" onchange="location = this.value;">
+    <option class="sort-date" value="/">최신순</option>
+    <option class="sort-likes" value="?sort=likes">좋아요순</option>
+    <option class="sort-mypost" value="?sort=mypost">내가쓴글</option>
+  </select>
+
+  <div class="row">
+    {% for memo in memos %}
+    <h2>{{ memo.title }}</h2>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
