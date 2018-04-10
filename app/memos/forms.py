@@ -5,7 +5,7 @@ from .models import Memos
 
 class PostForm(forms.ModelForm):
     class Meta:
-        models = Memos
+        model = Memos
         fields = ['title', 'text', 'priority']
         widgets = {
             'title': forms.TextInput(

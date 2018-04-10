@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block header %}
+{% endblock %}
+{% block container %}
+<form action="" method="POST" class="post-form">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>{{ field }}{{ field.label }}</div>
+    {% endfor %}
+    <button type="submit">저장</button>
+</form>
+{% endblock %}

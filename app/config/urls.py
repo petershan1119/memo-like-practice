@@ -21,4 +21,5 @@ from memos import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('<int:memokey>/modify/', views.modify, name='modify'),
 ]
