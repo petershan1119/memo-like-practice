@@ -2,15 +2,17 @@ import json
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import login
 from django.db.models import Count
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 
-from .forms import PostForm
+from .forms import PostForm, UserForm
 from .models import Memos
 
 User = get_user_model()
+
 
 def index(request):
     sort = request.GET.get('sort', '')
@@ -66,3 +68,26 @@ def modify(request, memokey):
             'form': form,
         }
         return render(request, 'memos/modify.html', context)
+
+
+def delete(request, memokey):
+    memo = Memos.objects.get(pk=memokey)
+    memo.delete()
+    return redirect('index')
+
+
+def signup(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            new_user = User.objects.create_user(**form.cleaned_data)
+            login(request, new_user)
+            return redirect('index')
+        else:
+            return HttpResponse('사용자 이미 존재')
+    else:
+        form = UserForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'memos/adduser.html', context)
