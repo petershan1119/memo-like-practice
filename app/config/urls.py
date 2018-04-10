@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.contrib.auth import views as auth_views
 from memos import views
 
+
 urlpatterns = [
+    path('login/', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    path('logout/', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('<int:memokey>/modify/', views.modify, name='modify'),
+    path('<int:memokey>/delete/', views.delete, name='delete'),
     path('new/', views.post, name='new-memo'),
+    path('join/', views.signup, name='join'),
+    path('like/', views.like, name='like'),
 ]

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="239db7c3-8c66-4194-8350-817e9954012e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/memos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/memos/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/memos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/memos/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,13 +17,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <folding>
+                <element signature="e#630#662#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/memos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1374">
-              <caret line="92" column="54" selection-start-line="92" selection-start-column="54" selection-end-line="92" selection-end-column="54" />
+            <state relative-caret-position="50">
+              <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#54#100#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/memos/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,6 +66,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>like_count</find>
+      <find>login</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -51,12 +80,13 @@
         <option value="$PROJECT_DIR$/app/members/admin.py" />
         <option value="$PROJECT_DIR$/app/templates/memos/index.html" />
         <option value="$PROJECT_DIR$/app/config/settings.py" />
-        <option value="$PROJECT_DIR$/app/memos/forms.py" />
         <option value="$PROJECT_DIR$/app/templates/base.html" />
         <option value="$PROJECT_DIR$/app/templates/memos/modify.html" />
         <option value="$PROJECT_DIR$/app/templates/memos/form.html" />
-        <option value="$PROJECT_DIR$/app/config/urls.py" />
         <option value="$PROJECT_DIR$/app/memos/models.py" />
+        <option value="$PROJECT_DIR$/app/config/urls.py" />
+        <option value="$PROJECT_DIR$/app/templates/memos/adduser.html" />
+        <option value="$PROJECT_DIR$/app/memos/forms.py" />
         <option value="$PROJECT_DIR$/app/memos/views.py" />
       </list>
     </option>
@@ -74,10 +104,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-13" />
-    <option name="y" value="23" />
+    <option name="x" value="-1" />
+    <option name="y" value="252" />
     <option name="width" value="1440" />
-    <option name="height" value="349" />
+    <option name="height" value="429" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -143,6 +173,13 @@
               <item name="memo_like_practice" type="b2602c69:ProjectViewProjectNode" />
               <item name="memo_like_practice" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="memo_like_practice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="memo_like_practice" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -175,6 +212,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/static" />
       <recent name="$PROJECT_DIR$/app/static/image" />
     </key>
   </component>
@@ -204,7 +242,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="23" width="1440" height="349" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="429" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -257,13 +295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1392">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/members/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -288,16 +319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding>
-            <element signature="e#630#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/memos/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -319,10 +340,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/var/pyenv/versions/ip-memo-like-practice/lib/python3.6/site-packages/django/contrib/auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="110" column="9" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/memos/adduser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#630#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/bootstrap/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/memos/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="502">
+          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -331,10 +389,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/memos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1374">
-          <caret line="92" column="54" selection-start-line="92" selection-start-column="54" selection-end-line="92" selection-end-column="54" />
+        <state relative-caret-position="50">
+          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#54#100#0" expanded="true" />
           </folding>
         </state>
       </provider>

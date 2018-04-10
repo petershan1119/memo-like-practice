@@ -1,4 +1,7 @@
-import json
+try:
+    from django.utils import simplejson as json
+except ImportError:
+    import json
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -12,6 +15,27 @@ from .forms import PostForm, UserForm
 from .models import Memos
 
 User = get_user_model()
+
+
+@login_required
+@require_POST
+def like(request):
+    if request.method == "POST":
+        user = request.user
+        memo_id = request.POST.get('pk', None)
+        memo = Memos.objects.get(pk=memo_id)
+
+        if memo.likes.filter(id=user.id).exists():
+            memo.likes.remove(user)
+            message = '좋아요 취소'
+        else:
+            memo.likes.add(user)
+            message = "좋아요!"
+    context = {
+        'likes_count': memo.total_likes,
+        'message': message,
+    }
+    return HttpResponse(json.dumps(context), content_type='application/json')
 
 
 def index(request):

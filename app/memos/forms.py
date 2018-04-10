@@ -1,6 +1,9 @@
 from django import forms
+from django.contrib.auth import get_user_model
 
 from .models import Memos
+
+User = get_user_model()
 
 
 class PostForm(forms.ModelForm):
@@ -33,4 +36,33 @@ class PostForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        widgets = {
+            'username': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': '15자 이내로 입력 가능',
+                }
+            ),
+            'email': forms.EmailInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+            'password': forms.PasswordInput(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
+        }
+        labels = {
+            'username': '사용자명',
+            'email': '이메일',
+            'password': '비밀번호',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(UserForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['maxlength'] = 15
