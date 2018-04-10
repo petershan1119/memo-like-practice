@@ -1,6 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block header %}
+{% if user.is_authenticated %}
+<div class="new">
+  <a href="{% url 'logout' %}">
+    <button type="button" class="btn btn-info navbar-btn">로그아웃</button>
+  </a>
+</div>
+<div class="new">
+  <a href="{% url 'new-memo' %}">
+    <button type="button" class="btn btn-info navbar-btn">새글</button>
+  </a>
+</div>
+{% else %}
+<div class="new">
+  <a href="{% url 'login' %}">
+    <button type="button" class="btn btn-info navbar-btn">로그인</button>
+  </a>
+</div>
+<div class="new">
+  <a href="{% url 'join' %}">
+    <button type="button" class="btn btn-info navbar-btn">회원가입</button>
+  </a>
+</div>
+{% endif %}
+<div class="new">
+  {% if user.is_authenticated %}
+  <p class="guide"><span id="user_name">{{ user.username }}</span>님 반갑습니다</p>
+  {% else %}
+  <p class="guide">로그인 필요</p>
+  {% endif %}
+</div>
 {% endblock %}
 
 {% block container %}
@@ -8,13 +38,56 @@
   <select id="sort-select" onchange="location = this.value;">
     <option class="sort-date" value="/">최신순</option>
     <option class="sort-likes" value="?sort=likes">좋아요순</option>
+    {% if user.is_authenticated %}
     <option class="sort-mypost" value="?sort=mypost">내가쓴글</option>
+    {% endif %}
   </select>
 
   <div class="row">
     {% for memo in memos %}
-    <h2>{{ memo.title }}</h2>
+    <h2>{{ memo.title }}
+      <span class="like_button">
+        {% if memo.total_likes == 0 %}
+        <a href="" class="like" id="{{ memo.id }}"><img id="like-img{{ memo.id }}" src="{% static 'images/like_before.png' %}" alt=""></a>
+        <span class="like_count" id="count{{ memo.id }}"></span>
+        {% elif memo.total_likes == 1 %}
+        <a href="" class="like" id="{{ memo.id }}"><img id="like-img{{ memo.id }}" src="{% static 'images/like_after.png' %}" alt=""></a>
+        <span class="like_count" id="count{{ memo.id }}">{{ memo.total_likes }} like</span>
+        {% else %}
+        <a href="" class="like" id="{{ memo.id }}"><img id="like-img{{ memo.id }}" src="{% static 'images/like_after.png' %}" alt=""></a>
+        <span class="like_count" id="count{{ memo.id }}">{{ memo.total_likes }} likes</span>
+        {% endif %}
+      </span>
+    </h2>
     {% endfor %}
   </div>
 </div>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script>
+$('.like').click(function() {
+  var pk = $(this).attr('id')
+  $.ajax({
+    type: "POST",
+    url: "{% url 'like' %}",
+    data: {'pk': pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+    dataType: "json",
+    success: function(response) {
+      if (response.likes_count == 1){
+        $('#count'+ pk).html(response.likes_count + ' like ');
+        $('#like-img'+pk).attr('src','{% static "images/like_after.png" %}');
+      } else if(response.likes_count == 0){
+        $('#count'+ pk).html('');
+        $('#like-img'+pk).attr('src','{% static "images/like_before.png" %}');
+      } else {
+        $('#count'+ pk).html(response.likes_count + ' likes');
+        $('#like-img'+pk).attr('src','{% static "images/like_after.png" %}');
+      }
+      // alert(response.message);
+    },
+    error:function(request,status,error){
+      alert('로그인이 필요합니다.')
+    }
+  });
+})
+</script>
 {% endblock %}
